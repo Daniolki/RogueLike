@@ -4,13 +4,7 @@ namespace RogueLike
 {
     class Program
     {
-        /*
-         * To Do
-         * - Inventory
-         * - Interaction With Objects 
-         * - Information Hub? 
-         * 
-         */
+
         static char playerSign = 'X'; //our character or other players - not walkable
         static char floor = '.'; //walkable, safe - done
         static char wall = '#'; //not walkable - done
@@ -20,12 +14,12 @@ namespace RogueLike
         static char stairUp = '/'; //walkable, safe
         static char stairDown = '\\'; //walkable, sometimes our character can trip down the stairs
         static char[] walkable = new char[] { floor, obstacle, door, stairDown, stairUp }; //array of walkable objects
-        
+
 
         static void Main(string[] args)
         {
             LevelZero();
-            
+
         }
 
         static int LevelZero()
@@ -115,12 +109,12 @@ namespace RogueLike
             }
             return false;
         }
-        
+
         static void PutSymbol(char[,] map, int x, int y, char symbol)
-        {                        
+        {
             map[x, y] = symbol;
         }
-        
+
         static void FillMap(char[,] map, char symbolTile, char symbolWall)
         {
 
@@ -128,7 +122,7 @@ namespace RogueLike
             {
                 for (int y = 0; y < map.GetLength(1); y++)
                 {
-                    if((y>0 && y < map.GetLength(1)-1) && (x>0 && x < map.GetLength(0)-1))
+                    if ((y > 0 && y < map.GetLength(1) - 1) && (x > 0 && x < map.GetLength(0) - 1))
                     {
                         map[x, y] = symbolTile;
                     }
@@ -139,18 +133,18 @@ namespace RogueLike
                 }
             }
         }
-        static void AddVerticalWallOfSymbols (char[,] map, int startY, int startX, int length, char symbol)
+        static void AddVerticalWallOfSymbols(char[,] map, int startY, int startX, int length, char symbol)
         {
 
-            for (int counter = 1; counter < length+1; counter++)
+            for (int counter = 1; counter < length + 1; counter++)
             {
                 map[counter + startY, startX] = symbol;
             }
         }
-        static void AddHorizontalWallOfSymbols (char[,] map, int startY, int startX, int length, char symbol)
+        static void AddHorizontalWallOfSymbols(char[,] map, int startY, int startX, int length, char symbol)
         {
 
-            for (int counter = 1; counter < length+1; counter++)
+            for (int counter = 1; counter < length + 1; counter++)
             {
                 map[startY, counter + startX] = symbol;
             }
