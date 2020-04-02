@@ -20,6 +20,7 @@ namespace RogueLike
         static void Main(string[] args)
         {
             LevelZero();
+
         }
         static int LevelZero()
         {
